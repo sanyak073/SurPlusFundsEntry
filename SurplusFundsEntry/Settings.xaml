@@ -2,23 +2,20 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Settings" Height="400" Width="600" Loaded="Window_Loaded" WindowStyle="ToolWindow" MaxWidth="600" MaxHeight="400" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFF8FFFF" Offset="1" />
-                <GradientStop Color="#FC398BD4" Offset="0" />
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Grid HorizontalAlignment="Stretch" Margin="12,12,20,35" VerticalAlignment="Stretch">
-            <TextBox AutoWordSelection="True" Background="#FF236FB6" BorderBrush="Black" FontFamily="Calibri" FontSize="13" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="40,50,0,0" Name="TemplateTextBox" SelectionBrush="White" VerticalAlignment="Top" Width="379" />
-            <Label Content="EXCEL TEMPLATE PATH" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="39,25,0,0" Name="TemplateLabel" VerticalAlignment="Top" />
+	<Grid>
+		<Grid.Background>
+			<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+				<GradientStop Color="#FFF8FFFF" Offset="1" />
+				<GradientStop Color="#FC398BD4" Offset="0" />
+			</LinearGradientBrush>
+		</Grid.Background>
+		<Grid HorizontalAlignment="Stretch" Margin="12,12,20,35" VerticalAlignment="Stretch">
+			<TextBox AutoWordSelection="True" Background="#FF236FB6" BorderBrush="Black" FontFamily="Calibri" FontSize="13" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="40,50,0,0" Name="TemplateTextBox" SelectionBrush="White" VerticalAlignment="Top" Width="379" />
+			<Label Content="EXCEL TEMPLATE PATH" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="39,25,0,0" Name="TemplateLabel" VerticalAlignment="Top" />
 			<Button Background="#FF236FB6" Click="TemplateButton_Click" Content="browse..." FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="430,50,0,0" Name="TemplateButton" VerticalAlignment="Top" Width="93" />
-			<!--<TextBox AutoWordSelection="True" Background="#FF236FB6" BorderBrush="Black" FontFamily="Calibri" FontSize="13" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="40,120,0,0" Name="DeedsTextBox" SelectionBrush="White" VerticalAlignment="Top" Width="379" />
-			<Label Content="EXCEL DEEDS PATH" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="39,95,0,0" Name="DeedsLabel" VerticalAlignment="Top" />
-			<Button Background="#FF236FB6" Click="DeedsButton_Click" Content="browse..." FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="430,120,0,0" Name="DeedsButton" VerticalAlignment="Top" Width="93" />-->
-			<TextBox AutoWordSelection="True" Background="#FF236FB6" BorderBrush="Black" FontFamily="Calibri" FontSize="13" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="40,190,0,0" Name="SaveFolderTextBox" SelectionBrush="White" VerticalAlignment="Top" Width="379" />
-            <Label Content="DOCUMENTS SAVE FOLDER:" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="39,165,0,0" Name="SaveFoldeLabel" VerticalAlignment="Top" />
-            <Button Background="#FF236FB6" Click="SaveFolderButton_Click" Content="browse..." FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="430,190,0,0" Name="SaveFolderButton" VerticalAlignment="Top" Width="93" />
-        </Grid>
-    </Grid>
+			<TextBox AutoWordSelection="True" Background="#FF236FB6" BorderBrush="Black" FontFamily="Calibri" FontSize="13" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="40,120,0,0" Name="SaveFolderTextBox" SelectionBrush="White" VerticalAlignment="Top" Width="379" />
+			<Label Content="DOCUMENTS SAVE FOLDER:" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="39,95,0,0" Name="SaveFoldeLabel" VerticalAlignment="Top" />
+			<Button Background="#FF236FB6" Click="SaveFolderButton_Click" Content="browse..." FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="430,120,0,0" Name="SaveFolderButton" VerticalAlignment="Top" Width="93" />
+		</Grid>
+	</Grid>
 </Window>

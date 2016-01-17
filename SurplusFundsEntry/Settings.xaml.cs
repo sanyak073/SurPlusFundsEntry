@@ -17,7 +17,6 @@ namespace SurplusFundsEntry
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
 			TemplateTextBox.Text = Properties.Settings.Default.pathTemplate;
-			DeedsTextBox.Text = Properties.Settings.Default.pathDeeds;
 			SaveFolderTextBox.Text = Properties.Settings.Default.pathSaveFolder;
 		}
 
