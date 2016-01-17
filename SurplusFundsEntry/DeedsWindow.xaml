@@ -1,0 +1,24 @@
+﻿<Window x:Class="SurplusFundsEntry.DeedsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SurplusFundsEntry.Models"
+        mc:Ignorable="d"
+        Title="DeedsWindow" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" AllowsTransparency="False" UseLayoutRounding="True" 
+		Icon="/SurplusFundsEntry;component/Images/1446098209_plus_add_blue.png" Loaded="Window_Loaded" MinWidth="200" ResizeMode="CanResizeWithGrip" 
+		Left="0" ScrollViewer.HorizontalScrollBarVisibility="Auto" Height="737.65" Width="1447.5">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFF8FFFF" Offset="1" />
+			<GradientStop Color="#FC398BD4" Offset="0" />
+		</LinearGradientBrush>
+	</Window.Background>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="655*"/>
+			<ColumnDefinition Width="168*"/>
+		</Grid.ColumnDefinitions>
+	</Grid>
+</Window>

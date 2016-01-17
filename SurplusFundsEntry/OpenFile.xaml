@@ -1,0 +1,27 @@
+﻿<Window x:Class="SurplusFundsEntry.OpenFile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OpenFile" Height="403" Width="795" Loaded="Window_Loaded" WindowStyle="ToolWindow" MaxWidth="800" MaxHeight="400" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,2,-4">
+
+
+        <Label Content="SEARCH FORMS:" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Calibri" FontWeight="Bold"/>
+        <TextBox x:Name="searchTextBox" HorizontalAlignment="Left" Height="24" Margin="12,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="428" FontFamily="Calibri" FontSize="16" TextChanged="TextBox_TextChanged"/>
+        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="12,87,0,0" VerticalAlignment="Top" Height="266" Width="748" FontFamily="Calibri" FontSize="14" FontWeight="SemiBold" Background="{x:Null}" ItemsSource="{Binding TestBinding}" MouseDoubleClick="dataGrid1_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="NAME" Width="350" Binding="{Binding Name}" FontFamily="Calibri" IsReadOnly="True"/>
+                <DataGridTextColumn Header="TYPE" Width="120" Binding="{Binding Type}" FontFamily="Calibri" IsReadOnly="True"/>
+                <DataGridTextColumn Header="STATE" Width="120" Binding="{Binding State}" FontFamily="Calibri" IsReadOnly="True"/>
+                <DataGridTextColumn Header="COUNTY" Width="120" Binding="{Binding County}" FontFamily="Calibri" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="shoAllButton" Content="Show All" HorizontalAlignment="Left" Margin="466,36,0,0" VerticalAlignment="Top" Width="108" Height="28" FontFamily="Calibri" FontSize="16" Click="Button_Click"/>
+        <Button x:Name="delButton" Content="Delete Selected" HorizontalAlignment="Left" Margin="648,54,0,0" VerticalAlignment="Top" Width="112" Height="28" FontFamily="Calibri" FontSize="16" Click="delButton_Click"/>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF8FFFF" Offset="1" />
+                <GradientStop Color="#FC398BD4" Offset="0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+    </Grid>
+</Window>

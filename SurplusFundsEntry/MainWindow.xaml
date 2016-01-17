@@ -1,0 +1,429 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="MainWindowZ" mc:Ignorable="d" x:Class="SurplusFundsEntry.MainWindow"
+    Title="Surplus Funds Data-Entry" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" AllowsTransparency="False" 
+	UseLayoutRounding="True" Icon="/SurplusFundsEntry;component/Images/1446098209_plus_add_blue.png" 
+	Loaded="Window_Loaded" MinWidth="200" ResizeMode="CanResizeWithGrip" Left="0" ScrollViewer.HorizontalScrollBarVisibility="Auto" Height="737.65" Width="1447.5">
+	<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="#FFF8FFFF" Offset="1" />
+			<GradientStop Color="#FC398BD4" Offset="0" />
+		</LinearGradientBrush>
+	</Window.Background>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="655*"/>
+			<ColumnDefinition Width="168*"/>
+		</Grid.ColumnDefinitions>
+		<Menu Height="28" x:Name="menu1" VerticalAlignment="Top" Background="#00000000" HorizontalAlignment="Left" Width="68">
+			<MenuItem Header="MENU" FontFamily="Calibri" FontSize="20" FontWeight="Bold">
+				<MenuItem Header="ADD NEW" x:Name="Add">
+					<MenuItem Header="MORTGAGE FORM" x:Name="mtgForm" Click="mtgForm_Click">
+					</MenuItem>
+					<MenuItem Header="TAX FORM" x:Name="taxForm" Click="taxForm_Click">
+					</MenuItem>
+					<MenuItem Header="DEEDS FORM" x:Name="deedsForm" Click="deeds_OnClick">
+					</MenuItem>
+				</MenuItem>
+				<MenuItem Header="MODIFY" x:Name="Modify" Click="Modify_Click" />
+				<MenuItem Header="SETTINGS" x:Name="Settings" Click="Settings_Click" />
+			</MenuItem>
+		</Menu>
+		<ScrollViewer x:Name="scrl" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,33,0,0" Grid.ColumnSpan="2">
+			<StackPanel x:Name="stackPanel1" CanVerticallyScroll="True" CanHorizontallyScroll="True" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top">
+				<StackPanel.Resources>
+					<Style TargetType="{x:Type DatePickerTextBox}">
+						<Style.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+								<Setter Property="BorderThickness" Value="4"/>
+							</Trigger>
+						</Style.Triggers>
+					</Style>
+					<Style TargetType="{x:Type TextBox}">
+						<Style.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+								<Setter Property="BorderThickness" Value="4"/>
+							</Trigger>
+						</Style.Triggers>
+					</Style>
+					<Style TargetType="{x:Type CheckBox}">
+						<Style.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+								<Setter Property="BorderThickness" Value="4"/>
+							</Trigger>
+						</Style.Triggers>
+					</Style>
+					<Style TargetType="{x:Type Button}">
+						<Style.Triggers>
+							<Trigger Property="IsFocused" Value="True">
+								<Setter Property="BorderThickness" Value="4"/>
+							</Trigger>
+						</Style.Triggers>
+					</Style>
+
+					<Style TargetType="{x:Type DataGridColumnHeader}">
+						<Setter Property="Background" Value="Transparent" />
+					</Style>
+
+					<Style TargetType="{x:Type DataGridCellsPanel}">
+						<Setter Property="Background" Value="Transparent" />
+					</Style>
+
+
+
+
+
+				</StackPanel.Resources>
+				<Expander Header="ATTACHMENTS" FontSize="22" FontWeight="Bold" x:Name="expander7" IsExpanded="False" IsEnabled="True" BorderThickness="2" HorizontalAlignment="Left">
+					<Grid Grid.Row="1" VerticalAlignment="Top" Height="628">
+
+						<TextBox IsReadOnly="True" AutoWordSelection="True" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40" HorizontalAlignment="Left" Margin="22,35,0,0" x:Name="textBox30" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" >
+							<TextBox.Background>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="White" Offset="0.003"/>
+									<GradientStop Color="White" Offset="1"/>
+								</LinearGradientBrush>
+							</TextBox.Background>
+						</TextBox>
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="638,35,0,0" x:Name="button30" VerticalAlignment="Top" Width="88" Click="button30_Click" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40" HorizontalAlignment="Left" Margin="22,103,0,0" x:Name="textBox31" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="638,103,0,0" x:Name="button31" VerticalAlignment="Top" Width="88" Click="button31_Click" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40" HorizontalAlignment="Left" Margin="23,178,0,0" x:Name="textBox32" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="638,178,0,0" x:Name="button32" VerticalAlignment="Top" Width="88" Click="button32_Click" />
+						<Label Content="COPY OF THE FORECLOSURE ORDER OR PROCEEDING" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" Margin="20,6,0,0" x:Name="label1" VerticalAlignment="Top" HorizontalAlignment="Left" />
+						<Label Content="COPY OF DISBURSEMENT SHEET OR LETTER SUMMARIZING MONIES IN SURPLUS/EXCESS" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="18,78,0,0" x:Name="label40" VerticalAlignment="Top" />
+						<Label Content="COPY OF PAGES WITH NOTIFICATION ADDRESSES" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="20,150,0,0" x:Name="label41" VerticalAlignment="Top" />
+
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40" HorizontalAlignment="Left" Margin="22,243,0,0" x:Name="textBox33" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" />
+						<Label Content="DEED" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="21,215,0,0" x:Name="label42" VerticalAlignment="Top" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="638,244,0,0" x:Name="button33" VerticalAlignment="Top" Width="88" Click="button33_Click" />
+						<Label Content="SHERIFF DEED" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="19,283,0,0" x:Name="label42_Copy" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40" HorizontalAlignment="Left" Margin="23,312,0,0" x:Name="textBox34" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="638,312,0,0" x:Name="button34" VerticalAlignment="Top" Width="88" Click="button34_Click"/>
+						<Label Content="MISC" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="23,358,0,0" x:Name="label42_Copy1" VerticalAlignment="Top" />
+						<ListBox x:Name="listBoxPDF" HorizontalAlignment="Left" Height="193" Margin="26,385,0,0" VerticalAlignment="Top" Width="593" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold"/>
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="638,385,0,0" x:Name="button35" VerticalAlignment="Top" Width="88" Click="button35_Click"/>
+						<Button Background="#FFE2E2E2" Content="remove selected" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="737,385,0,0" x:Name="button36" VerticalAlignment="Top" Width="88" Click="button36_Click"/>
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="737,35,0,0" x:Name="delButtonAtt1" VerticalAlignment="Top" Width="88" IsTabStop="False" Click="delAttachment" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="737,103,0,0" x:Name="delButtonAtt2" VerticalAlignment="Top" Width="88" IsTabStop="False" Click="delAttachment" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="737,178,0,0" x:Name="delButtonAtt3" VerticalAlignment="Top" Width="88" IsTabStop="False" Click="delAttachment" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="737,243,0,0" x:Name="delButtonAtt4" VerticalAlignment="Top" Width="88" IsTabStop="False" Click="delAttachment" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="737,312,0,0" x:Name="delButtonAtt5" VerticalAlignment="Top" Width="88" IsTabStop="False" Click="delAttachment" />
+					</Grid>
+
+				</Expander>
+				<Expander Header="MORTGAGE FORECLOSURE" FontSize="22" FontWeight="Bold" Height="Auto" x:Name="expander1" IsExpanded="False" IsEnabled="True" BorderThickness="2" BorderBrush="#00000000" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.504">
+					<Grid Height="608">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="6*" />
+							<RowDefinition Height="636*" />
+						</Grid.RowDefinitions>
+						<TextBox Background="WHITE" FontWeight="Bold" Height="52" HorizontalAlignment="Left" Margin="36,60,0,0" x:Name="tbName" VerticalAlignment="Top" Width="471" TextWrapping="Wrap" BorderBrush="Black" FontSize="16" AutoWordSelection="True" SelectionBrush="White" FontFamily="Calibri" Grid.Row="1" LostFocus="tbName_LostFocus" TextChanged="tbName_TextChanged" />
+						<Label Content="NAME(S) OF PERSON(S) OR ENTITY FORECLOSED ON (CASE NAME):" Height="28" HorizontalAlignment="Left" Margin="34,32,0,0" x:Name="label3" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" FontFamily="Calibri" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="49" HorizontalAlignment="Left" Margin="36,138,0,0" x:Name="tbDeedHolder" SelectionBrush="White" VerticalAlignment="Top" Width="471" Grid.Row="1" />
+						<Label Content="DEED HOLDER(S) AT TIME OF FORECLOSURE (NOT THE BUYER):" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="34,112,0,0" x:Name="label4" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="36,220,0,0" x:Name="tbFile" SelectionBrush="White" VerticalAlignment="Top" Width="471" Grid.Row="1" TextChanged="tbFile_TextChanged" />
+						<Label Content="FILE OR CASE NUMBER/DESCRIPTOR:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="34,192,0,0" x:Name="label5" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="36,276,0,0" x:Name="tbSurplus" SelectionBrush="White" VerticalAlignment="Top" Width="471" Grid.Row="1" TextChanged="tbSurplus_TextChanged" KeyDown="tbSurplus_KeyDown" />
+						<Label Content="SURPLUS AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="36,250,0,0" x:Name="label7" VerticalAlignment="Top" Grid.Row="1" />
+
+
+						<Label Content="COUNTY:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="34,308,0,0" x:Name="label8" VerticalAlignment="Top" Grid.Row="1" />
+						<ComboBox Grid.Row="1"  FontFamily="Calibri" FontSize="16" Height="30" BorderBrush="Black" HorizontalAlignment="Left" Margin="36,335,0,0" x:Name="tbCounty" VerticalAlignment="Top" Width="221" Background="White"/>
+
+						<Label Content="STATE:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="294,308,0,0" x:Name="label9" VerticalAlignment="Top" Grid.Row="1" />
+						<ComboBox Grid.Row="1" FontFamily="Calibri" FontSize="16" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="286,335,0,0" x:Name="tbState" VerticalAlignment="Top" Width="221" SelectionChanged="tbState_SelectionChanged" Background="White"/>
+
+						<DatePicker HorizontalAlignment="Left" Margin="38,407,0,0" x:Name="dateReviewed" Width="288" BorderBrush="Black" Background="WHITE" FirstDayOfWeek="Sunday" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="33" VerticalAlignment="Top" Grid.Row="1" SelectedDateChanged="dateReviewed_SelectedDateChanged"/>
+
+
+						<Label Content="DATE FILE REVIEWED:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="34,381,0,0" x:Name="label10" VerticalAlignment="Top" Grid.Row="1" />
+
+						<Label Content="RESEARCHER:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="34,448,0,0" x:Name="label11" VerticalAlignment="Top" Grid.Row="1" />
+						<ComboBox Grid.Row="1" FontFamily="Calibri" FontSize="16" Height="30" HorizontalAlignment="Left" Margin="38,471,0,0" x:Name="tbResearcher" VerticalAlignment="Top" Width="469"  Background="White">
+							<ComboBoxItem Content="Vogel Eliassaint"/>
+							<ComboBoxItem Content="Ben Jules"/>
+							<ComboBoxItem Content="Sandi Freeman"/>
+						</ComboBox>
+
+						<Label Content="DID YOU VERIFY THAT FUNDS ARE STILL BEING HELD? IF YES, HOW?" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="613,32,0,0" x:Name="label12" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox Text="YES" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="617,60,0,0" x:Name="tbVerify" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="472" IsEnabled="True" Grid.Row="1" />
+						<ComboBox Grid.Row="1" FontFamily="Calibri" FontSize="16" Height="30" BorderBrush="Black" HorizontalAlignment="Left" Margin="618,138,0,0" x:Name="tbHeld" VerticalAlignment="Top" Width="471" Background="White"/>
+
+						<Label Content="VERIFIED BY:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="615,112,0,0" x:Name="label13" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="617,220,0,0" x:Name="tbAddress" SelectionBrush="White" VerticalAlignment="Top" Width="472" Grid.Row="1" />
+						<DatePicker Background="WHITE" FirstDayOfWeek="Sunday" FontFamily="Calibri" FontSize="16" BorderBrush="Black" FontWeight="Bold" Height="33" HorizontalAlignment="Left" Margin="615,276,0,0" x:Name="dateRecorded" VerticalAlignment="Top" Width="221" Grid.Row="1" />
+
+						<Label Content="DATE RECORDED:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="613,250,0,0" x:Name="lblmtgDateRec" VerticalAlignment="Top" Grid.Row="1" />
+						<Label Content="FORECLOSED PROPERTY ADDRESS/LEGAL:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="613,192,0,0" x:Name="label15" VerticalAlignment="Top" Grid.Row="1" />
+						<DatePicker Background="WHITE" FirstDayOfWeek="Sunday" FontFamily="Calibri" BorderBrush="Black" FontSize="16" FontWeight="Bold" Height="33" HorizontalAlignment="Left" Margin="860,276,0,0" x:Name="dateForclosed" VerticalAlignment="Top" Width="221" Grid.Row="1" />
+						<Label Content="DATE FORCLOSED:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="860,250,0,0" x:Name="lblmtgDateForclosed" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="618,340,0,0" x:Name="tbBook" SelectionBrush="White" VerticalAlignment="Top" Width="219" Grid.Row="1" />
+
+						<Label Content="BOOK:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="613,308,0,0" x:Name="lblmtgBook" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="889,335,0,0" x:Name="tbPage" SelectionBrush="White" VerticalAlignment="Top" Width="198" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="618,409,0,0" x:Name="tbNote" SelectionBrush="White" VerticalAlignment="Top" Width="471" Grid.Row="1" TextChanged="TextBox_TextChanged" KeyDown="tbNote_KeyDown" />
+						<Label Content="AMOUNT OF MORTGAGE FORECLOSED ON(AMOUNT ON NOTE):" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="615,381,0,0" x:Name="lblmtgAmountNote" VerticalAlignment="Top" Grid.Row="1" />
+
+						<Label Content="PAGE:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="889,308,0,0" x:Name="lblmtgPage" VerticalAlignment="Top" Grid.Row="1" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="618,471,0,0" x:Name="tbBeneficiary" SelectionBrush="White" VerticalAlignment="Top" Width="471" Grid.Row="1" />
+						<Label Content="NAME OF MORTGAGE HOLDER (NOT TRUSTEE, INSTEAD MORTAGEE/BENEFICIARY):" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="613,446,0,0" x:Name="lblmtgBeneficiary" VerticalAlignment="Top" Grid.Row="1" />
+						<Button Content="NEXT &gt;&gt;&gt;" Height="37" Margin="447,536,0,0" x:Name="button3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="208" Click="button3_Click" Grid.Row="1" FontSize="22" FontWeight="Bold" FontFamily="Calibri" Background="#FFECECEC" />
+
+
+
+					</Grid>
+				</Expander>
+				<Expander Header="MORTGAGE HISTORY" FontSize="22" FontWeight="Bold" x:Name="expander2" Loaded="expander2_Loaded" BorderThickness="1" BorderBrush="#00000000" HorizontalAlignment="Left">
+
+					<Grid Height="558">
+
+						<TextBox AutoWordSelection="True" Background="White" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="20,40,0,0" x:Name="mtgName" SelectionBrush="White" VerticalAlignment="Top" Width="424" Text="{Binding Title}"/>
+						<Label Content="NAME OF MTG HOLDER" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="20,14,0,0" x:Name="label29" VerticalAlignment="Top" />
+
+						<Label Content="AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="20,70,0,0" x:Name="label30" VerticalAlignment="Top" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="22,98,0,0" x:Name="mtgAmount" SelectionBrush="White" VerticalAlignment="Top" Width="169" TextChanged="TextBox_TextChanged" KeyDown="mtgAmount_KeyDown" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="275,98,0,0" x:Name="mtgLoanNum" SelectionBrush="White" VerticalAlignment="Top" Width="167" />
+						<Label Content="LOAN #:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="275,70,0,0" x:Name="label35" VerticalAlignment="Top" />
+
+						<DatePicker Background="WHITE" FirstDayOfWeek="Sunday" FontFamily="Calibri" FontSize="16" FontWeight="Bold" BorderBrush="Black" Height="33" HorizontalAlignment="Left" Margin="22,154,0,0" x:Name="mtgDate" VerticalAlignment="Top" Width="167" DisplayDate="10/31/2015" />
+						<Label Content="DATE RECORDED" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="20,128,0,0" x:Name="label31" VerticalAlignment="Top" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="22,212,0,0" x:Name="mtgBook" SelectionBrush="White" VerticalAlignment="Top" Width="163" />
+						<Label Content="BOOK:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,184,0,0" x:Name="label33" VerticalAlignment="Top" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="275,212,0,0" x:Name="mtgPage" SelectionBrush="White" VerticalAlignment="Top" Width="167" />
+						<Label Content="PAGE:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="275,184,0,0" x:Name="label34" VerticalAlignment="Top" />
+
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="49" HorizontalAlignment="Left" Margin="20,275,0,0" x:Name="mtgAddress" SelectionBrush="White" VerticalAlignment="Top" Width="422" />
+						<Label Content="ADDRESS/CONTACT INFO:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,248,0,0" x:Name="label36" VerticalAlignment="Top" />
+						<ComboBox Height="32" HorizontalAlignment="Left" Margin="20,353,0,0" x:Name="comboBox1" BorderBrush="Black" VerticalAlignment="Top" Width="164" FontSize="16" FontFamily="Calibri" SelectionChanged="comboBox1_SelectionChanged"  Background="White">
+							<ComboBoxItem FontFamily="Calibri" FontSize="16" x:Name="cbItem1" Content="-"/>
+							<ComboBoxItem FontFamily="Calibri" FontSize="16" x:Name="cbItem2" Content="SATISFIED"/>
+							<ComboBoxItem FontFamily="Calibri" FontSize="16" x:Name="cbItem3" Content="PAID OFF"/>
+							<ComboBoxItem FontFamily="Calibri" FontSize="16" x:Name="cbItem4" Content="REFINANCED"/>
+						</ComboBox>
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="20,410,0,0" x:Name="mtgBookSatisfied" SelectionBrush="White" VerticalAlignment="Top" Width="163" TextChanged="mtgBookSatisfied_TextChanged" />
+						<Label Content="BOOK:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="26,382,0,0" x:Name="lblBook" VerticalAlignment="Top" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="275,410,0,0" x:Name="mtgPageSatisfied" SelectionBrush="White" VerticalAlignment="Top" Width="167" TextChanged="mtgBookPage_TextChanged" />
+						<Label Content="PAGE:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="275,382,0,0" x:Name="lblPage" VerticalAlignment="Top" />
+						<Label Content="NOT SATISFIED/SATISFIED/PAID OFF/REFINANCED " FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,330,0,0" x:Name="label37" VerticalAlignment="Top" />
+						<Button Background="#FFECECEC" Content="ATTACHMENT (PDF)" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="20,454,0,0" x:Name="mtgAttButton" VerticalAlignment="Top" Width="420" Click="button1_Click_2" />
+
+						<Button Background="#FFECECEC" Content="SAVE &amp; ADD MORE" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="241,504,0,0" x:Name="button4" VerticalAlignment="Top" Width="203" Click="button4_Click" />
+						<DataGrid AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow" x:Name="mtgDataGrid" CanUserAddRows="false" CanUserDeleteRows="True" ItemsSource="{Binding TestBinding}" Margin="470,40,25,147" RowBackground="WHITE" FontFamily="Calibri" FontWeight="Normal" FontSize="12" PreviewKeyDown="dataGrid1_PreviewKeyDown" CanUserReorderColumns="False" CanUserSortColumns="False" HorizontalScrollBarVisibility="Auto" Background="#00000000" MouseDoubleClick="mtgDataGrid_MouseDoubleClick">
+							<DataGrid.Columns>
+								<DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding ID}" Width="30"/>
+								<DataGridTextColumn Header="MTG HOLDER" IsReadOnly="True" Binding="{Binding Name}" Width="80"/>
+								<DataGridTextColumn Header="AMOUNT" IsReadOnly="True" Binding="{Binding Amount}" Width="80"/>
+								<DataGridTextColumn Header="LOAN #" IsReadOnly="True" Binding="{Binding LoanNum}" Width="80"/>
+								<DataGridTextColumn Header="DATE" IsReadOnly="True" Binding="{Binding Date, StringFormat=d}" Width="80"/>
+								<DataGridTextColumn Header="BOOK" IsReadOnly="True" Binding="{Binding Book}" Width="80"/>
+								<DataGridTextColumn Header="PAGE" IsReadOnly="True" Binding="{Binding Page}" Width="80"/>
+								<DataGridTextColumn Header="ADDRESS" IsReadOnly="True" Binding="{Binding Address}" Width="80"/>
+								<DataGridTextColumn Header="DEED REF" IsReadOnly="True" Binding="{Binding DeedBook}" Width="80"/>
+								<DataGridTextColumn Header="ATTACHMENT" IsReadOnly="True" Binding="{Binding Attachment}" Width="80"/>
+							</DataGrid.Columns>
+
+						</DataGrid>
+
+
+
+						<Button Background="#FFECECEC" Content="NEXT &gt;&gt;&gt;" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="551,504,0,0" x:Name="button5" VerticalAlignment="Top" Width="208" Click="button5_Click" />
+						<Label Content="0 OF 13" FontFamily="Calibri" FontSize="24" FontWeight="Bold" Foreground="Blue" Height="32" HorizontalAlignment="Left" Margin="470,4,0,0" x:Name="mtgLabelCount" VerticalAlignment="Top" Width="92" BorderBrush="Black" BorderThickness="2" Padding="0" />
+						<Button Background="WHITE" Content="DELETE SELECTED" FontFamily="Calibri" FontSize="18" FontWeight="Bold" Height="26" HorizontalAlignment="Left" Margin="568,6,0,0" x:Name="button12" VerticalAlignment="Top" Width="148" IsTabStop="False" Click="button12_Click" Focusable="False" />
+						<Button Background="#FFECECEC" Content="CLEAR ATT" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="470,454,0,0" x:Name="mtgAttCLR" VerticalAlignment="Top" Width="78" Click="attCLR_Click" IsTabStop="False" />
+					</Grid>
+				</Expander>
+				<Expander Header="JUDGMENT/LIENS HISTORY/CHAIN" FontSize="22" FontWeight="Bold" Height="Auto" x:Name="expander3" HorizontalAlignment="Left">
+					<Grid Height="488" VerticalAlignment="Bottom">
+
+						<Label Content="CASE #:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,46,0,0" x:Name="label23" VerticalAlignment="Top" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="27,74,0,0" x:Name="judCaseNum" SelectionBrush="White" VerticalAlignment="Top" Width="183" />
+
+						<Label Content="ORIGINAL AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="23,121,0,0" x:Name="label22" VerticalAlignment="Top" Width="173" />
+						<DatePicker Background="WHITE" FirstDayOfWeek="Sunday" FontFamily="Calibri" BorderBrush="Black" FontSize="16" FontWeight="Bold" Height="33" HorizontalAlignment="Left" Margin="256,70,0,0" x:Name="judDateRec" VerticalAlignment="Top" Width="206" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="27,147,0,0" x:Name="judOrigAmount" SelectionBrush="White" TextChanged="TextBox_TextChanged" VerticalAlignment="Top" Width="183" KeyDown="judOrigAmount_KeyDown" />
+
+						<Label Content="DATE RECORDED:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="254,46,0,0" x:Name="label24" VerticalAlignment="Top" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="256,147,0,0" x:Name="judCurrAmount" SelectionBrush="White" VerticalAlignment="Top" Width="206" TextChanged="TextBox_TextChanged" KeyDown="judCurrAmount_KeyDown" />
+
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="31" HorizontalAlignment="Left" Margin="27,211,0,0" x:Name="judName" SelectionBrush="White" VerticalAlignment="Top" Width="435" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="44" HorizontalAlignment="Left" Margin="27,282,0,0" x:Name="judContact" SelectionBrush="White" VerticalAlignment="Top" Width="435" />
+						<Label Content="ADDRESS &amp; CONTACT INFO OF JUDGMENT/LIEN HOLDER:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,252,0,0" x:Name="label2" VerticalAlignment="Top" Width="460" />
+						<Button Background="#FFECECEC" Content="ATTACHMENT (PDF)" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="27,347,0,0" x:Name="judAttButton" VerticalAlignment="Top" Width="435" Click="button2_Click" />
+						<Button Background="#FFECECEC" Content="CLEAR ATT" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="482,347,0,0" x:Name="judAttCLR" VerticalAlignment="Top" Width="78" Click="attCLR_Click" IsTabStop="False" />
+						<Button Background="#FFECECEC" Click="button6_Click" Content="SAVE &amp; ADD MORE" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="254,424,0,0" x:Name="button6" VerticalAlignment="Top" Width="208" />
+						<DataGrid AutoGenerateColumns="False" CanUserAddRows="false" CanUserDeleteRows="True" CanUserReorderColumns="False" CanUserSortColumns="False" FontFamily="Calibri" FontSize="12" FontWeight="Normal" HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding judgmentBinding}" Margin="578,56,6,104" x:Name="judDataGrid" PreviewKeyDown="judDataGrid_PreviewKeyDown" RowBackground="WHITE" SelectionMode="Single" SelectionUnit="FullRow" Background="#00000000" MouseDoubleClick="judDataGrid_DoubleClick">
+							<DataGrid.Columns>
+								<DataGridTextColumn Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="30" />
+								<DataGridTextColumn Binding="{Binding CaseNum}" Header="CASE #" IsReadOnly="True" Width="100" />
+								<DataGridTextColumn Binding="{Binding DateRec, StringFormat=d}" Header="DATE REC" IsReadOnly="True" Width="100" />
+								<DataGridTextColumn Binding="{Binding OriginalAmount}" Header="ORIGINAL AMOUNT" IsReadOnly="True" Width="120" />
+								<DataGridTextColumn Binding="{Binding CurrentAmount}" Header="CURRENT AMOUNT" IsReadOnly="True" Width="120" />
+								<DataGridTextColumn Binding="{Binding Contact}" Header="CONTACT" IsReadOnly="True" Width="120" />
+								<DataGridTextColumn Header="ATTACHMENT" IsReadOnly="True" Binding="{Binding Attachment}" Width="80"/>
+							</DataGrid.Columns>
+						</DataGrid>
+						<Label Content="CURRENT AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="256,121,0,0" x:Name="label14" VerticalAlignment="Top" Width="173" />
+						<Label Content="NAME" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,187,0,0" x:Name="label25" VerticalAlignment="Top" Width="460" />
+
+
+						<Label Content="0 OF 12" FontFamily="Calibri" FontSize="24" FontWeight="Bold" Foreground="Blue" Height="34" HorizontalAlignment="Left" Margin="578,16,0,0" x:Name="judgementLabelCount" VerticalAlignment="Top" Width="90" BorderBrush="Black" BorderThickness="2" Padding="0" />
+
+						<Button Background="#FFECECEC" Content="NEXT &gt;&gt;&gt;" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="510,424,0,0" x:Name="button7" VerticalAlignment="Top" Width="208" Click="button7_Click" />
+						<Button Background="WHITE" Content="DELETE SELECTED" FontFamily="Calibri" FontSize="18" FontWeight="Bold" Height="26" HorizontalAlignment="Left" IsTabStop="False" Margin="676,21,0,0" x:Name="button13" VerticalAlignment="Top" Width="148" Click="button13_Click" Focusable="False" />
+					</Grid>
+
+				</Expander>
+				<Expander Header="CONCLUSION" FontSize="22" FontWeight="Bold" Height="Auto" x:Name="expander4" IsExpanded="False" IsEnabled="True">
+					<Grid Height="442">
+						<DataGrid AutoGenerateColumns="False" CanUserAddRows="false" CanUserDeleteRows="True" CanUserReorderColumns="False" CanUserSortColumns="False" FontFamily="Calibri" FontSize="12" FontWeight="Normal" HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding judgmentBinding}" Margin="600,61,0,69" x:Name="conclusionDataGrid" RowBackground="WHITE" SelectionMode="Single" SelectionUnit="FullRow" PreviewKeyDown="conclusionDataGrid_PreviewKeyDown_2" Width="836" Background="#00000000" HorizontalAlignment="Left" MouseDoubleClick="conclusionDataGrid_MouseDoubleClick">
+							<DataGrid.Columns>
+								<DataGridTextColumn Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="30" />
+								<DataGridTextColumn Binding="{Binding Name}" Header="NAME" IsReadOnly="True" Width="250" />
+								<DataGridTextColumn Binding="{Binding Amount}" Header="AMOUNT" IsReadOnly="True" Width="150" />
+								<DataGridTextColumn Binding="{Binding Date, StringFormat=d}" Header="DATE" IsReadOnly="True" Width="150" />
+								<DataGridTextColumn Header="ATTACHMENT" IsReadOnly="True" Binding="{Binding Attachment}" Width="80"/>
+
+							</DataGrid.Columns>
+						</DataGrid>
+						<Label BorderBrush="Black" BorderThickness="2" Content="0 OF 12" FontFamily="Calibri" FontSize="24" FontWeight="Bold" Foreground="Blue" Height="34" HorizontalAlignment="Left" Margin="600,22,0,0" x:Name="conclusionLabelCount" Padding="0" VerticalAlignment="Top" Width="90" />
+
+						<Button Background="WHITE" Content="DELETE SELECTED" FontFamily="Calibri" FontSize="18" FontWeight="Bold" Height="26" HorizontalAlignment="Left" IsTabStop="False" Margin="706,27,0,0" x:Name="button14" VerticalAlignment="Top" Width="148" Click="button14_Click" Focusable="False" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="31" HorizontalAlignment="Left" Margin="16,69,0,0" x:Name="tbConclusionName" SelectionBrush="White" VerticalAlignment="Top" Width="435" />
+						<Label Content="NAME:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="16,45,0,0" x:Name="label6" VerticalAlignment="Top" Width="460" />
+						<Label Content="AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="16,106,0,0" x:Name="label26" VerticalAlignment="Top" Width="173" />
+						<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="16,137,0,0" x:Name="tbConclusionAmount" SelectionBrush="White" VerticalAlignment="Top" Width="183" KeyDown="tbConclusionAmount_KeyDown" />
+						<DatePicker Background="WHITE" DisplayDate="10/31/2015" FirstDayOfWeek="Sunday" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="35" HorizontalAlignment="Left" Margin="264,132,0,0" x:Name="conclusionDate" VerticalAlignment="Top" Width="187" />
+						<Label Content="DATE" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="262,106,0,0" x:Name="label27" VerticalAlignment="Top" />
+						<Button Background="#FFECECEC" Content="ATTACHMENT (PDF)" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="16,197,0,0" x:Name="conclusionAttButton" VerticalAlignment="Top" Width="435" Click="button11_Click_2" />
+						<Button Background="#FFECECEC" Content="CLEAR ATT" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="473,197,0,0" x:Name="conclAttCLR" VerticalAlignment="Top" Width="78" Click="attCLR_Click" IsTabStop="False" />
+
+						<Button Background="#FFECECEC" Content="SAVE &amp; ADD MORE" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="243,265,0,0" x:Name="button16" VerticalAlignment="Top" Width="208" Click="button16_Click" />
+						<Button Background="#FFECECEC" Content="NEXT &gt;&gt;&gt;" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="494,389,0,0" x:Name="button8" VerticalAlignment="Top" Width="208" Click="button8_Click_1" />
+						<CheckBox x:Name="cbAddEstates" Content="ADD ESTATES FORM" HorizontalAlignment="Left" Margin="32,366,0,0" VerticalAlignment="Top" FontFamily="Calibri" Checked="CheckBox_Checked" Unchecked="estatesUnchecked" FontSize="24"/>
+					</Grid>
+				</Expander>
+				<Expander FontSize="22" FontWeight="Bold" Header="ESTATES" x:Name="expander8" Foreground="Black">
+					<Grid VerticalAlignment="Top">
+						<Label Content="NAME(S) OF PERSON(S) DECEASED:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,32,0,0" x:Name="label55" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="27,62,0,0" x:Name="tbEstatesNameDeceased" SelectionBrush="White" VerticalAlignment="Top" Width="507" />
+
+						<Label Content="FILE OR CASENUMBER/DESCRIPTOR:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,95,0,0" x:Name="label55_Copy" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="27,123,0,0" x:Name="tbEstatesFileNumber" SelectionBrush="White" VerticalAlignment="Top" Width="507" Text="{Binding ElementName=tbFile, Path=Text, Mode=OneWay}"/>
+						<Label Content="FUNDS AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,161,0,0" x:Name="label55_Copy1" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="27,187,0,0" x:Name="tbEstatesFunds" SelectionBrush="White" VerticalAlignment="Top" Width="507" TextChanged="TextBox_TextChanged" Text="{Binding ElementName=tbSurplus, Path=Text, Mode=OneWay}"/>
+						<Label Content="COUNTY:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="26,218,0,0" x:Name="label88" VerticalAlignment="Top" />
+						<ComboBox IsEnabled="False" IsReadOnly="True" FontFamily="Calibri" FontSize="16" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="28,243,0,0" x:Name="cbEstatesCounty" VerticalAlignment="Top" Width="221"  Background="White" SelectedItem="{Binding SelectedItem, ElementName=tbCounty, Mode=OneWay}"/>
+
+						<Label Content="STATE:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="306,220,0,0" x:Name="label99" VerticalAlignment="Top" />
+						<ComboBox IsEnabled="False" IsReadOnly="True" FontFamily="Calibri" FontSize="16" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="310,243,0,0" x:Name="cbEstatesState" VerticalAlignment="Top" Width="221"  SelectionChanged="estatesState_SelectionChanged" Background="White" SelectedItem="{Binding SelectedItem, ElementName=tbState, Mode=OneWay}"/>
+
+						<DatePicker IsEnabled="False" Background="WHITE" DisplayDate="10/31/2015" FirstDayOfWeek="Sunday" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="35" HorizontalAlignment="Left" Margin="30,304,0,0" x:Name="dtEstateDateReviewed" VerticalAlignment="Top" Width="187" />
+						<Label Content="DATE REVIEWED" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="28,279,0,0" x:Name="label270" VerticalAlignment="Top" />
+						<Label Content="RESEARCHER:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="26,344,0,0" x:Name="label55_Copy13" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="26,368,0,0" x:Name="tbEstatesResearcher" SelectionBrush="White" VerticalAlignment="Top" Width="507" Text="{Binding SelectedValue.Content, ElementName=tbResearcher}"/>
+
+
+						<Label Content="IS THIS PART OF TAX OR MORTGAGE FORECLOSURE FILE? " FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="28,402,0,0" x:Name="label99_Copy" VerticalAlignment="Top" />
+						<ComboBox FontFamily="Calibri" FontSize="16" Height="30" HorizontalAlignment="Left" BorderBrush="Black" Margin="30,429,0,0" x:Name="tbEstatePartOf" VerticalAlignment="Top" Width="137"  Background="White">
+							<ComboBoxItem Content="YES"/>
+							<ComboBoxItem Content="NO"/>
+						</ComboBox>
+						<Label Content="HOW DID YOU VERIFY THAT THE FUNDS ARE STILL HELD?" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="27,462,0,0" x:Name="label55_Copy2" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="30,487,0,0" x:Name="tbEstatesHow" SelectionBrush="White" VerticalAlignment="Top" Width="507"/>
+
+
+
+						<Label Content="IN LINE FOR FUNDS CURRENTLY DUE:" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="686,10,0,0" x:Name="label55_Copy4" VerticalAlignment="Top" Width="349" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="601,67,0,0" x:Name="tbEstatesName1" SelectionBrush="White" VerticalAlignment="Top" Width="345" />
+						<Label Content="NAME:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="601,38,0,0" x:Name="label55_Copy5" VerticalAlignment="Top" />
+						<Label Content="AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="991,38,0,0" x:Name="label55_Copy6" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="991,67,0,0" x:Name="tbEstatesAmount1" SelectionBrush="White" VerticalAlignment="Top" Width="207" TextChanged="TextBox_TextChanged" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="601,122,0,0" x:Name="tbEstatesName2" SelectionBrush="White" VerticalAlignment="Top" Width="345" />
+						<Label Content="NAME:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="601,95,0,0" x:Name="label55_Copy7" VerticalAlignment="Top" />
+						<Label Content="AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="991,95,0,0" x:Name="label55_Copy8" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="991,122,0,0" x:Name="tbEstatesAmount2" SelectionBrush="White" VerticalAlignment="Top" Width="207" TextChanged="TextBox_TextChanged" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="601,177,0,0" x:Name="tbEstatesName3" SelectionBrush="White" VerticalAlignment="Top" Width="345" />
+						<Label Content="NAME:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="601,152,0,0" x:Name="label55_Copy9" VerticalAlignment="Top" />
+						<Label Content="AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="991,152,0,0" x:Name="label55_Copy10" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="991,177,0,0" x:Name="tbEstatesAmount3" SelectionBrush="White" VerticalAlignment="Top" Width="207" TextChanged="TextBox_TextChanged" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="601,239,0,0" x:Name="tbEstatesName4" SelectionBrush="White" VerticalAlignment="Top" Width="345" />
+						<Label Content="NAME:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="601,214,0,0" x:Name="label55_Copy11" VerticalAlignment="Top" />
+						<Label Content="AMOUNT:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="991,214,0,0" x:Name="label55_Copy12" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="991,239,0,0" x:Name="tbEstatesAmount4" SelectionBrush="White" VerticalAlignment="Top" Width="207" TextChanged="TextBox_TextChanged" />
+
+
+
+						<Label Content="DEATH CERTIFICATE:" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="34" HorizontalAlignment="Left" Margin="601,278,0,0" x:Name="label60" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="601,310,0,0" x:Name="tbEstatesDeathAtt" SelectionBrush="White" VerticalAlignment="Top" Width="491" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1100,310,0,0" x:Name="deathCertButton" VerticalAlignment="Top" Width="68" Click="deathCertButton_Click" />
+
+						<Label Content="WILL:" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="34" HorizontalAlignment="Left" Margin="601,335,0,0" x:Name="label61" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="601,365,0,0" x:Name="tbEstatesWillAtt" SelectionBrush="White" VerticalAlignment="Top" Width="491" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1100,365,0,0" x:Name="willButton" VerticalAlignment="Top" Width="68" Click="willButton_Click" />
+
+						<Label Content="ANY DOCUMENT(S) SHOWING HEIR WHO IS ENTITLED:" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="34" HorizontalAlignment="Left" Margin="601,395,0,0" x:Name="label61_Copy1" VerticalAlignment="Top" />
+
+						<ListBox x:Name="listEstateAnyDocs" HorizontalAlignment="Left" Height="93" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Margin="601,424,0,0" VerticalAlignment="Top" Width="491"/>
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1100,429,0,0" x:Name="anyDocsButton" VerticalAlignment="Top" Width="68" Click="anyDocsButton_Click" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1174,429,0,0" x:Name="delButton1" VerticalAlignment="Top" Width="56" Click="delButton1_Click" />
+
+
+						<Label Content="NOTIFICATION OR LAST KNOWN ADDRESS FOR HEIR" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="34" HorizontalAlignment="Left" Margin="602,518,0,0" x:Name="label61_Copy" VerticalAlignment="Top" />
+						<TextBox IsReadOnly="True" AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="602,550,0,0" x:Name="tbEstatesNotifAtt" SelectionBrush="White" VerticalAlignment="Top" Width="490" />
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1100,550,0,0" x:Name="notifButton" VerticalAlignment="Top" Width="68" Click="notifButton_Click" />
+
+
+						<Label Content="ANY OTHER IMPORTANT DOCUMENT AS IT RELATES TO THIS FILE:" FontFamily="Calibri" FontSize="20" FontWeight="Bold" Height="34" HorizontalAlignment="Left" Margin="601,580,0,0" x:Name="label61_Copy2" VerticalAlignment="Top" />
+						<ListBox x:Name="listEstateAnyOtherDocs" HorizontalAlignment="Left" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="100" Margin="601,609,0,0" VerticalAlignment="Top" Width="491"/>
+						<Button Background="#FFE2E2E2" Content="browse..." FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1100,610,0,0" x:Name="anyOtherDocsButton" VerticalAlignment="Top" Width="68" Click="anyOtherDocsButton_Click" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1174,609,0,0" x:Name="delButton2" VerticalAlignment="Top" Width="56" Click="delButton2_Click" />
+
+
+						<Button Background="#FFECECEC" Content="NEXT &gt;&gt;&gt;" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="570,779,0,0" x:Name="estatesNextButton" VerticalAlignment="Top" Width="208" Click="estateNext_Click" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1174,310,0,0" x:Name="delButtonAtt6" VerticalAlignment="Top" Width="56" IsTabStop="False" Click="delAttachment" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1174,365,0,0" x:Name="delButtonAtt7" VerticalAlignment="Top" Width="56" IsTabStop="False" Click="delAttachment" />
+						<Button Background="#FFE2E2E2" Content="remove" FontFamily="Calibri" FontSize="12" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="1174,550,0,0" x:Name="delButtonAtt8" VerticalAlignment="Top" Width="56" IsTabStop="False" Click="delAttachment" />
+					</Grid>
+				</Expander>
+				<Expander Header="CLAIMANTS" FontSize="22" FontWeight="Bold" Height="Auto" x:Name="expander6" HorizontalAlignment="Left">
+					<Grid Height="Auto" Width="1196">
+
+						<Grid Height="396">
+							<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="22,34,0,0" x:Name="tbClaimantName" SelectionBrush="White" VerticalAlignment="Top" Width="401" />
+							<Label Content="NAME:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,6,0,0" x:Name="label28" VerticalAlignment="Top" />
+							<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" Margin="22,104,0,0" x:Name="tbClaimantPhone" SelectionBrush="White" VerticalAlignment="Top" HorizontalAlignment="Left" Width="401" />
+							<Label Content="PHONE:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,70,0,0" x:Name="label38" VerticalAlignment="Top" />
+							<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="54" HorizontalAlignment="Left" Margin="22,162,0,0" x:Name="tbClaimantAddress" SelectionBrush="White" VerticalAlignment="Top" Width="401" />
+							<Label Content="ADDRESS:" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,134,0,0" x:Name="label32" VerticalAlignment="Top" />
+							<TextBox AutoWordSelection="True" Background="WHITE" BorderBrush="Black" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="30" HorizontalAlignment="Left" Margin="22,257,0,0" x:Name="tbClaimantGuess" SelectionBrush="White" VerticalAlignment="Top" Width="401" />
+							<Label Content="IS THIS A 'GUESS' OR TAKEN FROM WHITEPAGES, ETC?  " FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="21,226,0,0" x:Name="label39" VerticalAlignment="Top" />
+							<Button Background="#FFECECEC" Content="SAVE &amp; ADD MORE" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="38" HorizontalAlignment="Left" Margin="215,306,0,0" x:Name="button9" VerticalAlignment="Top" Width="208" Click="button9_Click" />
+						</Grid>
+
+						<DataGrid AutoGenerateColumns="False" CanUserAddRows="false" CanUserDeleteRows="True" CanUserReorderColumns="False" CanUserSortColumns="False" FontFamily="Calibri" FontSize="12" FontWeight="Normal" HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding inlineBinding}" Margin="474,56,38,120" x:Name="claimantsDataGrid" PreviewKeyDown="claimantsDataGrid_PreviewKeyDown"  RowBackground="WHITE" SelectionMode="Single" SelectionUnit="FullRow" Background="#00000000" MouseDoubleClick="claimantDataGrid_MouseDoubleClick" IsReadOnly="True">
+							<DataGrid.Columns>
+								<DataGridTextColumn Binding="{Binding ID}" Header="ID" IsReadOnly="True" Width="30" />
+								<DataGridTextColumn Binding="{Binding ClaimantName}" Header="CL Name" IsReadOnly="False" Width="120" />
+								<DataGridTextColumn Binding="{Binding ClaimantPhone}" Header="CL Phone" IsReadOnly="False" Width="120" />
+								<DataGridTextColumn Binding="{Binding ClaimantAddress}" Header="CL Address" IsReadOnly="False" Width="200" />
+								<DataGridTextColumn Binding="{Binding ClaimantGuess}" Header="CL Guess" IsReadOnly="False" Width="120" />
+							</DataGrid.Columns>
+						</DataGrid>
+
+						<Label BorderBrush="Black" BorderThickness="2" Content="0 OF 7" FontFamily="Calibri" FontSize="24" FontWeight="Bold" Foreground="Blue" Height="36" HorizontalAlignment="Left" Margin="474,13,0,0" x:Name="claimantsLabelCount" VerticalAlignment="Top" Width="80" Padding="0" />
+						<Button Background="WHITE" Content="DELETE SELECTED" FontFamily="Calibri" FontSize="18" FontWeight="Bold" Height="26" HorizontalAlignment="Left" IsTabStop="False" Margin="560,23,0,0" x:Name="button15" VerticalAlignment="Top" Width="148" Focusable="False" Click="button15_Click_1" />
+						<Button Background="#FFECECEC" Content="NEXT &gt;&gt;&gt;" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="47" HorizontalAlignment="Left" Margin="628,357,0,0" x:Name="button10" VerticalAlignment="Top" Width="208" Click="button10_Click_1" />
+					</Grid>
+				</Expander>
+
+				<Expander FontSize="22" FontWeight="Bold" Header="SUBMIT" Height="Auto" x:Name="expander5" Foreground="Black">
+					<Grid Height="488">
+						<Button Background="#FFECECEC" Content="SAVE RECORD" Focusable="False" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="60" HorizontalAlignment="Left" Margin="16,54,0,0" x:Name="button18" VerticalAlignment="Top" Width="450" Click="button18_Click" />
+					</Grid>
+				</Expander>
+			</StackPanel>
+		</ScrollViewer>
+	</Grid>
+</Window>
