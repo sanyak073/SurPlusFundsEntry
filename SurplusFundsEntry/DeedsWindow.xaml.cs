@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace SurplusFundsEntry
 {
@@ -75,6 +76,21 @@ namespace SurplusFundsEntry
 		}
 
 		private void MiscRemoveButton_Click(object sender, RoutedEventArgs e)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		private void NamesOfPersonsTextBox_LostFocus(object sender, RoutedEventArgs e)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		private void NamesOfPersonsTextBox_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		private void FileOfCaseTextBox_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			throw new System.NotImplementedException();
 		}
