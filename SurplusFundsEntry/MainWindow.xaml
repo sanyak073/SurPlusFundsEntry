@@ -16,22 +16,22 @@
 			<ColumnDefinition Width="655*"/>
 			<ColumnDefinition Width="168*"/>
 		</Grid.ColumnDefinitions>
-		<Menu Height="28" x:Name="menu1" VerticalAlignment="Top" Background="#00000000" HorizontalAlignment="Left" Width="68">
+		<Menu Height="28" x:Name="Menu" VerticalAlignment="Top" Background="#00000000" HorizontalAlignment="Left" Width="68">
 			<MenuItem Header="MENU" FontFamily="Calibri" FontSize="20" FontWeight="Bold">
 				<MenuItem Header="ADD NEW" x:Name="Add">
-					<MenuItem Header="MORTGAGE FORM" x:Name="mtgForm" Click="mtgForm_Click">
+					<MenuItem Header="MORTGAGE FORM" x:Name="MtgForm" Click="mtgForm_Click">
 					</MenuItem>
-					<MenuItem Header="TAX FORM" x:Name="taxForm" Click="taxForm_Click">
+					<MenuItem Header="TAX FORM" x:Name="TaxForm" Click="taxForm_Click">
 					</MenuItem>
-					<MenuItem Header="DEEDS FORM" x:Name="deedsForm" Click="deeds_OnClick">
+					<MenuItem Header="DEEDS FORM" x:Name="DeedsForm" Click="deeds_Click">
 					</MenuItem>
 				</MenuItem>
 				<MenuItem Header="MODIFY" x:Name="Modify" Click="Modify_Click" />
 				<MenuItem Header="SETTINGS" x:Name="Settings" Click="Settings_Click" />
 			</MenuItem>
 		</Menu>
-		<ScrollViewer x:Name="scrl" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,33,0,0" Grid.ColumnSpan="2">
-			<StackPanel x:Name="stackPanel1" CanVerticallyScroll="True" CanHorizontallyScroll="True" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top">
+		<ScrollViewer x:Name="ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,33,0,0" Grid.ColumnSpan="2" Grid.Column="0">
+			<StackPanel x:Name="StackPanel" CanVerticallyScroll="True" CanHorizontallyScroll="True" HorizontalAlignment="Left" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top">
 				<StackPanel.Resources>
 					<Style TargetType="{x:Type DatePickerTextBox}">
 						<Style.Triggers>
@@ -61,22 +61,15 @@
 							</Trigger>
 						</Style.Triggers>
 					</Style>
-
 					<Style TargetType="{x:Type DataGridColumnHeader}">
 						<Setter Property="Background" Value="Transparent" />
 					</Style>
-
 					<Style TargetType="{x:Type DataGridCellsPanel}">
 						<Setter Property="Background" Value="Transparent" />
 					</Style>
-
-
-
-
-
 				</StackPanel.Resources>
 				<Expander Header="ATTACHMENTS" FontSize="22" FontWeight="Bold" x:Name="expander7" IsExpanded="False" IsEnabled="True" BorderThickness="2" HorizontalAlignment="Left">
-					<Grid Grid.Row="1" VerticalAlignment="Top" Height="628">
+					<Grid VerticalAlignment="Top" Height="628">
 
 						<TextBox IsReadOnly="True" AutoWordSelection="True" BorderBrush="Black" FontFamily="Calibri" FontSize="14" FontWeight="Bold" Height="40" HorizontalAlignment="Left" Margin="22,35,0,0" x:Name="textBox30" SelectionBrush="White" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" >
 							<TextBox.Background>
@@ -209,7 +202,8 @@
 						<Label Content="NOT SATISFIED/SATISFIED/PAID OFF/REFINANCED " FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="22,330,0,0" x:Name="label37" VerticalAlignment="Top" />
 						<Button Background="#FFECECEC" Content="ATTACHMENT (PDF)" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="20,454,0,0" x:Name="mtgAttButton" VerticalAlignment="Top" Width="420" Click="button1_Click_2" />
 
-						<Button Background="#FFECECEC" Content="SAVE &amp; ADD MORE" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="241,504,0,0" x:Name="button4" VerticalAlignment="Top" Width="203" Click="button4_Click" />
+						<Button Background="#FFECECEC" Content="SAVE &amp; ADD MORE" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="241,504,0,0" 
+								x:Name="button4" VerticalAlignment="Top" Width="203" Click="button4_Click" />
 						<DataGrid AutoGenerateColumns="False" SelectionMode="Single" SelectionUnit="FullRow" x:Name="mtgDataGrid" CanUserAddRows="false" CanUserDeleteRows="True" ItemsSource="{Binding TestBinding}" Margin="470,40,25,147" RowBackground="WHITE" FontFamily="Calibri" FontWeight="Normal" FontSize="12" PreviewKeyDown="dataGrid1_PreviewKeyDown" CanUserReorderColumns="False" CanUserSortColumns="False" HorizontalScrollBarVisibility="Auto" Background="#00000000" MouseDoubleClick="mtgDataGrid_MouseDoubleClick">
 							<DataGrid.Columns>
 								<DataGridTextColumn Header="ID" IsReadOnly="True" Binding="{Binding ID}" Width="30"/>
@@ -231,7 +225,8 @@
 						<Button Background="#FFECECEC" Content="NEXT &gt;&gt;&gt;" FontFamily="Calibri" FontSize="22" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="551,504,0,0" x:Name="button5" VerticalAlignment="Top" Width="208" Click="button5_Click" />
 						<Label Content="0 OF 13" FontFamily="Calibri" FontSize="24" FontWeight="Bold" Foreground="Blue" Height="32" HorizontalAlignment="Left" Margin="470,4,0,0" x:Name="mtgLabelCount" VerticalAlignment="Top" Width="92" BorderBrush="Black" BorderThickness="2" Padding="0" />
 						<Button Background="WHITE" Content="DELETE SELECTED" FontFamily="Calibri" FontSize="18" FontWeight="Bold" Height="26" HorizontalAlignment="Left" Margin="568,6,0,0" x:Name="button12" VerticalAlignment="Top" Width="148" IsTabStop="False" Click="button12_Click" Focusable="False" />
-						<Button Background="#FFECECEC" Content="CLEAR ATT" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="470,454,0,0" x:Name="mtgAttCLR" VerticalAlignment="Top" Width="78" Click="attCLR_Click" IsTabStop="False" />
+						<Button Background="#FFECECEC" Content="CLEAR ATT" FontFamily="Calibri" FontSize="16" FontWeight="Bold" Height="37" HorizontalAlignment="Left" Margin="470,454,0,0" 
+								x:Name="mtgAttCLR" VerticalAlignment="Top" Width="78" Click="attCLR_Click" IsTabStop="False" />
 					</Grid>
 				</Expander>
 				<Expander Header="JUDGMENT/LIENS HISTORY/CHAIN" FontSize="22" FontWeight="Bold" Height="Auto" x:Name="expander3" HorizontalAlignment="Left">

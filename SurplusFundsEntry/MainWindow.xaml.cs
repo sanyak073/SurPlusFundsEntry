@@ -34,14 +34,6 @@ namespace SurplusFundsEntry
 			dtEstateDateReviewed.SelectedDate = DateTime.Now;
 
 			comboBox1.SelectedIndex = 0;
-
-			try
-			{
-				GetLastFiles(Properties.Settings.Default.pathSaveFolder);
-			}
-			catch
-			{
-			}
 		}
 
 		public static List<Tuple<string, string>> CountyStateList = new List<Tuple<string, string>>();
@@ -122,7 +114,7 @@ namespace SurplusFundsEntry
 
 		private void Window_Loaded(object sender, RoutedEventArgs e)
 		{
-			scrl.Visibility = System.Windows.Visibility.Hidden;
+			ScrollViewer.Visibility = System.Windows.Visibility.Hidden;
 			p1 = new project1();
 			ClearStatic();
 			Retry:
@@ -173,7 +165,6 @@ namespace SurplusFundsEntry
 				{
 					Properties.Settings.Default.pathSaveFolder = fdiag.SelectedPath;
 					Properties.Settings.Default.Save();
-					GetLastFiles(Properties.Settings.Default.pathSaveFolder);
 				}
 				else
 				{
@@ -312,18 +303,6 @@ namespace SurplusFundsEntry
 			claimantList = new List<claimantsClass>();
 			conclusionList = new List<conclusionClass>();
 
-		}
-
-		//redundant
-		private void GetLastFiles(string xlPath)
-		{
-			foreach (string file in Directory.GetFiles(xlPath))
-			{
-				if (file.ToLower().EndsWith(".xlsm"))
-				{
-
-				}
-			}
 		}
 
 		private void button3_Click(object sender, RoutedEventArgs e)
@@ -1630,7 +1609,7 @@ namespace SurplusFundsEntry
 
 			if (tbName.Text.Length > 0)
 			{
-				char[] toReplace = new char[] { '\\', '/', ':', '*', '?', '\"', '<', '>', '|' };
+				char[] toReplace = { '\\', '/', ':', '*', '?', '\"', '<', '>', '|' };
 				foreach (char chr in toReplace)
 					tbName.Text = tbName.Text.Replace(chr.ToString(), "");
 			}
@@ -1744,7 +1723,7 @@ namespace SurplusFundsEntry
 
 			mw.Show();
 
-			mw.scrl.Visibility = System.Windows.Visibility.Visible;
+			mw.ScrollViewer.Visibility = System.Windows.Visibility.Visible;
 			this.Close();
 
 		}
@@ -1758,7 +1737,7 @@ namespace SurplusFundsEntry
 
 			mw.Show();
 
-			mw.scrl.Visibility = System.Windows.Visibility.Visible;
+			mw.ScrollViewer.Visibility = System.Windows.Visibility.Visible;
 			this.Close();
 		}
 
@@ -1772,7 +1751,7 @@ namespace SurplusFundsEntry
 				this.Close();
 				mw.Show();
 
-				mw.scrl.Visibility = System.Windows.Visibility.Visible;
+				mw.ScrollViewer.Visibility = Visibility.Visible;
 				mw.ReloadData(FileToOpen);
 			}
 		}
@@ -2428,16 +2407,10 @@ namespace SurplusFundsEntry
 		}
 
 
-		private void deeds_OnClick(object sender, RoutedEventArgs e)
+		private void deeds_Click(object sender, RoutedEventArgs e)
 		{
-			isMtgForm = false;
-			isTaxForm = false;
-			isDeedsForm = true;
-			MainWindow mw = new MainWindow();
-
-			mw.Show();
-			mw.scrl.Visibility = System.Windows.Visibility.Visible;
-			this.Close();
+			new DeedsWindow().Show();
+			Close();
 		}
 	}
 }
